@@ -41,7 +41,6 @@ async function main() {
   await mongoose.connect(dbUrl);
 }
 
-
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   crypto: {
@@ -65,8 +64,6 @@ const sessionOptions = {
     httpOnly: true,
   },
 };
-
-
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -100,7 +97,7 @@ app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
 app.get("/", (req, res) => {
-  res.send("Hi, I am root");
+  res.redirect("/listings");
 });
 
 app.all("*", (req, res, next) => {
