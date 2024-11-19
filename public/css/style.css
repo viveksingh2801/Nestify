@@ -1,0 +1,214 @@
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+}
+
+/* Navbar */
+
+.navbar {
+  height: 5rem;
+  background-color: white;
+}
+
+.nav-link {
+  color: #222222 !important;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.5rem 1rem; /* Ensure spacing between links */
+  font-size: 1.1rem; /* Adjust text size for readability */
+}
+
+@media (max-width: 768px) {
+  .navbar-brand img {
+    height: 35px; /* Reduce logo size for smaller screens */
+  }
+  .navbar-collapse {
+    background-color: #f8f9fa; /* Optional: add background color to make links more visible */
+  }
+}
+
+/* Footer */
+
+.f-info-links a {
+  text-decoration: none;
+  color: rgb(46, 45, 45);
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brands {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-info-socials i {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+.f-info {
+  text-align: center;
+  height: 8rem;
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+}
+
+/* cards */
+
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+}
+
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.card-text {
+  font-weight: 400;
+}
+
+.listing-link {
+  text-decoration: none;
+}
+
+.card-img-overlay {
+  opacity: 0;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
+}
+
+/* New Page */
+.add-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+/* Edit Page*/
+.edit-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+/* Show Page */
+.show-img {
+  height: 30vh;
+}
+
+.btns {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.btns a {
+  margin-right: 12px;
+}
+
+.book-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+.search-card {
+  border: none !important;
+}
+
+/* Overall Payment Page Styles */
+.payment_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* Heading Styles */
+.payment_div h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Listing ID Styles */
+.payment_div p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* QR Code Image Styles */
+.payment_div img {
+  width: 220px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styles */
+.payment_div button {
+  background-color: #ff5a5f !important;
+  color: white !important;
+  border: none;
+  padding: 12px 25px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.payment_div button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .payment_div {
+    padding: 20px;
+  }
+  .payment_div h3 {
+    font-size: 20px;
+  }
+  .payment_div p {
+    font-size: 14px;
+  }
+  .payment_div img {
+    width: 150px;
+    height: 150px;
+  }
+}

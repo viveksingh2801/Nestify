@@ -1,0 +1,30 @@
+<!-- <% layout("/layouts/boilerplate") %>
+
+<div class="payment_div">
+  <h3>Amount: ₹<%= price %></h3>
+  <p><strong>Listing ID:</strong> <%= id %></p>
+  <img src="/images/QR.jpg" alt="QR code" />
+
+  <a href="/some-payment-link">
+    <button class="btn btn-dark col-9 offset-2 book-btn">
+      Proceed to Confirmation
+    </button>
+  </a>
+</div> -->
+
+
+<% layout("/layouts/boilerplate") %>
+
+<div class="payment_div">
+    <h3>Amount: ₹<%= price %></h3>
+    <p><strong>Listing ID:</strong> <%= id %></p>
+    <img src="/images/QR.jpg" alt="QR code" />
+
+ 
+    <a href="/listings/proceed-to-confirmation?price=<%= price %>&id=<%= id %>">
+        <button class="btn btn-dark col-9 offset-2 book-btn">
+            Proceed to Confirmation
+        </button>
+    </a>
+</div>
+
