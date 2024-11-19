@@ -36,67 +36,203 @@
       display: flex;
       align-items: center;
     }
+
+    /* Hide all filters except the tax toggle in mobile view */
+    @media (max-width: 768px) {
+      .filter {
+        display: none; /* Hide all filter buttons */
+      }
+
+      /* Reduce size of the tax toggle button */
+      .tax-toggle {
+        height: 2.5rem; /* Decrease height */
+        padding-left: 0.2rem; /* Adjust padding */
+        font-size: 0.9rem; /* Reduce font size */
+        margin-left: 15rem; /* Adjust margin */
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+        border-radius: 0.5rem;
+      }
+
+      /* Only show the updated label in mobile view */
+      .tax-toggle label {
+        font-size: 0.8rem; /* Optional: smaller text size */
+      }
+
+      /* Hide the original text and display "After Tax" */
+      .tax-toggle label {
+        display: none; /* Hide the original text */
+      }
+
+      .tax-toggle::after {
+        content: "Taxes"; /* Set new text for mobile */
+        font-size: 0.8rem; /* Adjust font size */
+        display: block; /* Make sure it's visible */
+      }
+    }
+
+    
+
+    /* Default styles to hide the search box in larger views */
+    .newBtn {
+      display: none; /* Hide the search box in larger views */
+    }
+
+    /* Mobile view specific styles */
+    @media (max-width: 768px) {
+      /* Show the search box and button in mobile view */
+      .newBtn {
+        display: block;
+        width: 70%; /* Adjust the width for search box */
+        padding: 1rem;
+        box-sizing: border-box;
+        margin: 0 auto; /* Center align the search box */
+      }
+
+      .newBtn form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .newBtn input {
+        width: 70%; /* Adjust width of the input */
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: none; /* Remove all borders */
+        border-bottom: 2px solid #ccc; /* Only show the bottom border */
+        outline: none; /* Remove the default outline on focus */
+      }
+      .newBtn input:focus {
+        border-bottom: 2px solid #ff5a5f; /* Change color of bottom border on focus */
+      }
+
+      .newBtn button {
+        padding: 0.5rem 2rem;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        background-color: #ff5a5f;
+        color: white;
+        cursor: pointer;
+        width: 30%; /* Button width adjusted to fit */
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .newBtn button:hover {
+        background-color: #fe424d;
+      }
+
+      /* Center-align the search box and tax toggle button in one row */
+      .filters-container {
+        display: flex;
+        flex-direction: row; /* Ensure items are in a row */
+        justify-content: center; /* Center the elements horizontally */
+        align-items: center; /* Center the elements vertically */
+        width: 100%;
+        margin-top: 1rem; /* Space between filters */
+        gap: 1rem; /* Add space between search box and tax toggle */
+      }
+
+      /* Tax toggle styling */
+      .tax-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        border-radius: 1rem;
+        height: 2.3rem;
+        padding: 0.1rem;
+        margin-left: 1rem;
+      }
+
+      /* Reduce size of tax toggle on mobile */
+      .tax-toggle label {
+        font-size: 0.8rem;
+      }
+
+      .tax-toggle::after {
+        content: "Taxes";
+        font-size: 0.8rem;
+        display: block;
+      }
+    }
   </style>
-  <div id="filters">
-    <div class="filter">
-      <div><i class="fa-solid fa-fire"></i></div>
-      <p>Trending</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-bed"></i></div>
-      <p>Rooms</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-mountain-city"></i></div>
-      <p>Iconic cities</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-mountain"></i></div>
-      <p>Mountains</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-brands fa-fort-awesome"></i></div>
-      <p>Castles</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-person-swimming"></i></div>
-      <p>Amazing Pools</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-campground"></i></div>
-      <p>Camping</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-cow"></i></div>
-      <p>Farms</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-snowflake"></i></div>
-      <p>Arctic</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-igloo"></i></div>
-      <p>Domes</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-sailboat"></i></div>
-      <p>Boats</p>
+  <div class="filters-container">
+    <div class="newBtn">
+      <form action="/listings/search" method="get" role="search">
+        <input name="q" type="text" placeholder="Search" />
+        <button type="submit" class="btn search-btn" type="submit">
+          <i></i>Search
+        </button>
+      </form>
     </div>
 
-    <div class="tax-toggle">
-      <div class="form-check-reverse form-switch">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          role="switch"
-          id="flexSwitchCheckDefault"
-        />
-        <label class="form-check-label" for="flexSwitchCheckDefault"
-          >Display total after Taxes</label
-        >
+    <div id="filters">
+      <div class="filter">
+        <div><i class="fa-solid fa-fire"></i></div>
+        <p>Trending</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-bed"></i></div>
+        <p>Rooms</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-mountain-city"></i></div>
+        <p>Iconic cities</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-mountain"></i></div>
+        <p>Mountains</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-brands fa-fort-awesome"></i></div>
+        <p>Castles</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-person-swimming"></i></div>
+        <p>Amazing Pools</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-campground"></i></div>
+        <p>Camping</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-cow"></i></div>
+        <p>Farms</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-snowflake"></i></div>
+        <p>Arctic</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-igloo"></i></div>
+        <p>Domes</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-sailboat"></i></div>
+        <p>Boats</p>
+      </div>
+
+      <div class="tax-toggle">
+        <div class="form-check-reverse form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckDefault"
+          />
+          <label class="form-check-label" for="flexSwitchCheckDefault">
+            Display total after Taxes
+          </label>
+        </div>
       </div>
     </div>
   </div>
+
   <!-- <h3>All Listings</h3> -->
   <!-- <form method="GET" action="/listings/new">
     <button>Create New Listing</button>
@@ -116,7 +252,7 @@
           <p class="card-text">
             <b><%= listing.title %></b> <br />
             &#8377; <%= listing.price.toLocaleString("en-IN") %> /night
-            <i class="tax-info"> &nbsp; &nbsp; +18% GST</i>
+            <i class="tax-info"> &nbsp; &nbsp;+18% GST</i>
           </p>
         </div>
       </div>
